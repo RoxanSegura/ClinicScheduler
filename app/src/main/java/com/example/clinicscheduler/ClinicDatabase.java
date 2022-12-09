@@ -70,10 +70,10 @@ public class ClinicDatabase extends SQLiteOpenHelper {
         return res;
     }
 
-    // Im still gonna test if this actually works
-    public Cursor getDataByID(String ID) {
+    //search by id or lastname
+    public Cursor getDataByID(String UserID, String UserLName) {
         sqLiteDatabase = this.getWritableDatabase();
-        Cursor res = sqLiteDatabase.rawQuery("select * from " + TABLE_NAME + " where ID", null);
+        Cursor res = sqLiteDatabase.rawQuery("select * from " + TABLE_NAME + " where ID='" + UserID + "'" + " OR " + " LASTNAME='" + UserLName + "'", null);
         return res;
     }
 }
