@@ -21,17 +21,19 @@ public class ClinicDatabase extends SQLiteOpenHelper {
     public static final String c6 = "BIRTHDAY";
     public static final String c7 = "CONDITION";
     public static final String c8 = "DIAGNOSIS";
-    public static final String c9 = "APPOINTMENT DATE";
-    public static final String c10 = "APPOINTMENT TIME";
+    public static final String c9 = "APPOINTMENTDATE";
+    public static final String c10 = "APPOINTMENTTIME";
     SQLiteDatabase sqLiteDatabase;
 
-    public ClinicDatabase(@Nullable Context context) { super(context, DB_NAME, null, 1); }
+    public ClinicDatabase(@Nullable Context context) { super(context, DB_NAME, null, 1);
+
+    }
 
     //Constructor
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("create table " + TABLE_NAME + "(ID INTEGER PRIMARY KEY AUTOINCREMENT, FIRSTNAME TEXT, LASTNAME TEXT, AGE INTEGER, GENDER TEXT, BIRTHDAY TEXT," +
-                "CONDITION TEXT, DIAGNOSIS TEXT, APPOINTMENT_DATE TEXT, APPOINTMENT_TIME TEXT)");
+                "CONDITION TEXT, DIAGNOSIS TEXT, APPOINTMENTDATE TEXT, APPOINTMENTTIME TEXT)");
     }
 
     //Checks if the table already exists

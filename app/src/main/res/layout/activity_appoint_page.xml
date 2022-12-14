@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/submitRecord"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AppointPage">
@@ -9,9 +10,11 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="240dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="25dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="85dp"
+        android:layout_marginTop="51dp"
+        android:layout_marginEnd="86dp"
+        android:layout_marginBottom="10dp"
         android:includeFontPadding="true"
         android:paddingTop="15dp"
         android:text="Patient Record"
@@ -25,12 +28,137 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
+        android:id="@+id/lname"
+        android:layout_width="352dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="25dp"
+        android:ems="10"
+        android:hint="Lastname"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fname" />
+
+    <RadioGroup
+        android:id="@+id/radiogrp"
+        android:layout_width="151dp"
+        android:layout_height="127dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="22dp"
+        app:layout_constraintBottom_toTopOf="@+id/condition"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lname">
+
+        <RadioButton
+            android:id="@+id/radiomale"
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
+            android:text="Male"
+            tools:layout_editor_absoluteX="233dp"
+            tools:layout_editor_absoluteY="297dp" />
+
+        <RadioButton
+            android:id="@+id/radiofemale"
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
+            android:text="Female"
+            tools:layout_editor_absoluteX="233dp"
+            tools:layout_editor_absoluteY="358dp" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/age"
+        android:layout_width="179dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="5dp"
+        android:ems="10"
+        android:hint="Age"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/editTextDate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lname" />
+
+    <Button
+        android:id="@+id/appointTimePicker"
+        android:layout_width="173dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:text="Appointment Time"
+        app:layout_constraintBottom_toTopOf="@+id/viewRecords"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/appointDatePicker"
+        app:layout_constraintTop_toBottomOf="@+id/diagnosis" />
+
+    <Button
+        android:id="@+id/appointDatePicker"
+        android:layout_width="162dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginBottom="10dp"
+        android:onClick="openDatePicker"
+        android:text="Appointment Date"
+        app:layout_constraintBottom_toTopOf="@+id/recordSubmit"
+        app:layout_constraintEnd_toStartOf="@+id/appointTimePicker"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/diagnosis" />
+
+    <EditText
+        android:id="@+id/condition"
+        android:layout_width="352dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:hint="Condition"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/diagnosis"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/diagnosis"
+        android:layout_width="353dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="25dp"
+        android:ems="10"
+        android:hint="Diagnosis"
+        android:inputType="textPersonName"
+        android:paddingTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/condition" />
+
+    <Button
+        android:id="@+id/recordSubmit"
+        android:layout_width="163dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginBottom="20dp"
+        android:text="Submit Record"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/viewRecords"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appointDatePicker" />
+
+    <EditText
         android:id="@+id/fname"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="30dp"
+        android:layout_width="351dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="10dp"
         android:ems="10"
         android:hint="Firstname"
         android:inputType="textPersonName"
@@ -40,126 +168,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <EditText
-        android:id="@+id/diagnosis"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="32dp"
-        android:ems="10"
-        android:hint="Diagnosis"
-        android:inputType="textPersonName"
-        android:paddingTop="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/appointTimePicker"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/condition" />
-
-    <EditText
-        android:id="@+id/condition"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="27dp"
-        android:ems="10"
-        android:hint="Condition"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/diagnosis"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/birthdayBttn" />
-
-    <EditText
-        android:id="@+id/lname"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="39dp"
-        android:ems="10"
-        android:hint="Lastname"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/age"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fname" />
-
     <Button
-        android:id="@+id/appointTimePicker"
-        android:layout_width="168dp"
-        android:layout_height="61dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="94dp"
-        android:text="Appointment Time"
+        android:id="@+id/viewRecords"
+        android:layout_width="177dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="View Records"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/appointDatePicker"
-        app:layout_constraintTop_toBottomOf="@+id/diagnosis" />
-
-    <Button
-        android:id="@+id/appointDatePicker"
-        android:layout_width="0dp"
-        android:layout_height="59dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="13dp"
-        android:text="Appointment Date"
-        app:layout_constraintBaseline_toBaselineOf="@+id/appointTimePicker"
-        app:layout_constraintEnd_toStartOf="@+id/appointTimePicker"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/birthdayBttn"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="39dp"
-        android:text="birthday"
-        app:layout_constraintBottom_toTopOf="@+id/condition"
-        app:layout_constraintEnd_toStartOf="@+id/radiogrp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/age" />
-
-    <RadioGroup
-        android:id="@+id/radiogrp"
-        android:layout_width="138dp"
-        android:layout_height="110dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="39dp"
-        app:layout_constraintBottom_toTopOf="@+id/condition"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/age"
-        app:layout_constraintTop_toBottomOf="@+id/lname">
-
-        <RadioButton
-            android:id="@+id/radiomale"
-            android:layout_width="139dp"
-            android:layout_height="58dp"
-            android:text="Male" />
-
-        <RadioButton
-            android:id="@+id/radiofemale"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Female" />
-    </RadioGroup>
+        app:layout_constraintStart_toEndOf="@+id/recordSubmit"
+        app:layout_constraintTop_toBottomOf="@+id/appointTimePicker" />
 
     <EditText
-        android:id="@+id/age"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="34dp"
-        android:layout_marginEnd="27dp"
-        android:layout_marginBottom="12dp"
+        android:id="@+id/editTextDate"
+        android:layout_width="177dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginBottom="30dp"
         android:ems="10"
-        android:hint="Age"
-        android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/birthdayBttn"
-        app:layout_constraintEnd_toStartOf="@+id/radiogrp"
+        android:hint="Month/Date/Year"
+        android:inputType="date"
+        app:layout_constraintBottom_toTopOf="@+id/condition"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lname" />
+        app:layout_constraintTop_toBottomOf="@+id/age" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
