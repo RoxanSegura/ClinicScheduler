@@ -26,8 +26,9 @@ public class ClinicDatabase extends SQLiteOpenHelper {
     SQLiteDatabase sqLiteDatabase;
 
     public ClinicDatabase(@Nullable Context context) { super(context, DB_NAME, null, 1);
-
+        sqLiteDatabase = this.getWritableDatabase();
     }
+
 
     //Constructor
     @Override
