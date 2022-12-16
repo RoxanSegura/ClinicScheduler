@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ViewAll">
+
+  <TextView
+      android:id="@+id/textView6"
+      android:layout_width="253dp"
+      android:layout_height="48dp"
+      android:layout_marginStart="85dp"
+      android:layout_marginTop="40dp"
+      android:layout_marginEnd="73dp"
+      android:layout_marginBottom="57dp"
+      android:includeFontPadding="true"
+      android:paddingTop="15dp"
+      android:text="View Records"
+      android:textAlignment="center"
+      android:textAllCaps="true"
+      android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+      android:textSize="24sp"
+      app:layout_constraintBottom_toTopOf="@+id/searchID"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <EditText
+      android:id="@+id/searchID"
+      android:layout_width="224dp"
+      android:layout_height="48dp"
+      android:layout_marginStart="2dp"
+      android:layout_marginEnd="68dp"
+      android:ems="10"
+      android:inputType="textPersonName"
+      app:layout_constraintBottom_toTopOf="@+id/searchLName"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toEndOf="@+id/textView3" />
+
+  <Button
+      android:id="@+id/viewAll"
+      android:layout_width="125dp"
+      android:layout_height="48dp"
+      android:layout_marginStart="18dp"
+      android:layout_marginTop="20dp"
+      android:layout_marginEnd="68dp"
+      android:layout_marginBottom="417dp"
+      android:text="VIEW ALL"
+      android:textSize="13sp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toEndOf="@+id/searchById"
+      app:layout_constraintTop_toBottomOf="@+id/searchLName" />
+
+  <TextView
+      android:id="@+id/textView3"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="29dp"
+      android:layout_marginTop="65dp"
+      android:layout_marginBottom="29dp"
+      android:text="Search by ID: "
+      app:layout_constraintBottom_toTopOf="@+id/textView4"
+      app:layout_constraintEnd_toStartOf="@+id/searchID"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+  <TextView
+      android:id="@+id/textView4"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="37dp"
+      android:layout_marginBottom="35dp"
+      android:text="Lastname: "
+      app:layout_constraintBottom_toTopOf="@+id/searchById"
+      app:layout_constraintEnd_toStartOf="@+id/searchLName"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+  <Button
+      android:id="@+id/searchById"
+      android:layout_width="122dp"
+      android:layout_height="48dp"
+      android:layout_marginStart="78dp"
+      android:layout_marginTop="18dp"
+      android:layout_marginEnd="18dp"
+      android:layout_marginBottom="419dp"
+      android:text="SEARCH"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@+id/viewAll"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/searchLName" />
+
+  <EditText
+      android:id="@+id/searchLName"
+      android:layout_width="224dp"
+      android:layout_height="48dp"
+      android:layout_marginStart="10dp"
+      android:layout_marginTop="5dp"
+      android:layout_marginEnd="73dp"
+      android:ems="10"
+      android:inputType="textPersonName"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toEndOf="@+id/textView4"
+      app:layout_constraintTop_toBottomOf="@+id/searchID" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

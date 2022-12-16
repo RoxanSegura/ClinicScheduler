@@ -14,6 +14,9 @@
         android:theme="@style/Theme.ClinicScheduler"
         tools:targetApi="31" >
         <activity
+            android:name=".ViewAll"
+            android:exported="false" />
+        <activity
             android:name=".AppointPage"
             android:exported="false" />
         <activity

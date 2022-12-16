@@ -60,9 +60,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void accessAppointmentPage(){
-
         Intent i = new Intent(this,AppointPage.class);
         startActivity(i);
+
     }
 
 }

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
@@ -49,47 +50,14 @@ public class AppointPage extends AppCompatActivity {
 
         initDatePicker(); //For the Appointment Date Button
         setTime();
-        showAll();
         submitData();
-    }
 
-    //Honestly dont know if this show is a good one
-    public void showAll() {
         viewRecords.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Cursor res = clinicDatabase.getAllData();
-                StringBuffer buffer = new StringBuffer();
-                while (res.moveToNext()) {
-                    buffer.append("Id: " + res.getString(0) + "\n\n");
-                    buffer.append("Firstname: " + res.getString(1) + "\n\n");
-                    buffer.append("Lastname: " + res.getString(2) + "\n\n");
-                    buffer.append("Age: " + res.getString(3) + "\n\n");
-                    buffer.append("Gender: " + res.getString(4) + "\n\n");
-                    buffer.append("Birthday: " + res.getString(5) + "\n\n");
-                    buffer.append("Condition: " + res.getString(6) + "\n\n");
-                    buffer.append("Diagnosis: " + res.getString(7) + "\n\n");
-                    buffer.append("Appopint Date: " + res.getString(8) + "\n\n");
-                    buffer.append("Appoint Time: " + res.getString(9) + "\n\n");
-                }
-
-                if(res.getCount() == 0) {
-                    Toast.makeText(AppointPage.this, "Table is empty", Toast.LENGTH_LONG).show();
-                    return;
-                } else {
-                    showMessage("Data",buffer.toString());
-                }
-
+                accessViewAllPage();
             }
         });
-    }
-
-    public void showMessage(String title, String Message) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setCancelable(true);
-        builder.setTitle(title);
-        builder.setMessage(Message);
-        builder.show();
     }
 
 public boolean checkInputs(){
@@ -113,7 +81,7 @@ public void submitData() {
             @Override
             public void onClick(View view) {
 
-  //              if(!checkInputs()){
+              if(!checkInputs()){
 
                     int select = radioGrp.getCheckedRadioButtonId();
                     RadioButton radio = (RadioButton) findViewById(select);
@@ -125,12 +93,12 @@ public void submitData() {
                         Toast.makeText(AppointPage.this, "Data Insertion Failed", Toast.LENGTH_LONG).show();
                     else
                         Toast.makeText(AppointPage.this, "Data Insertion Successful", Toast.LENGTH_LONG).show();
-/*
+
                 } else {
 
                     Toast.makeText(AppointPage.this, "Please Fill in the boxes", Toast.LENGTH_LONG).show();
                 }
-*/
+
         }
     });
  }
@@ -214,7 +182,15 @@ private String getMonthFormat(int month) {
         Log.i("info","yes " + appointTimePicker);
     }
 
+    /*Go to viewAll*/
+
+    public void accessViewAllPage(){
+        Intent i = new Intent(this,ViewAll.class);
+        startActivity(i);
+
+    }
+
 }
 
-/*Appointment Time*/
+
 
