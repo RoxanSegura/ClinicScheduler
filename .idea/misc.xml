@@ -3,10 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/User/AndroidStudioProjects/ClinicScheduler/app/src/main/res/layout/activity_appoint_page.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/ClinicScheduler/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/ClinicScheduler/app/src/main/res/layout/appointment_page.xml" value="0.358695652173913" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/ClinicScheduler/app/src/main/res/layout/patient_archive.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Personal/AndroidStudioProjects/ClinicScheduler/app/src/main/res/layout/activity_main.xml" value="0.264" />
       </map>
     </option>
   </component>
