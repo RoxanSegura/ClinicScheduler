@@ -29,7 +29,6 @@ public class ClinicDatabase extends SQLiteOpenHelper {
         sqLiteDatabase = this.getWritableDatabase();
     }
 
-
     //Constructor
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
