@@ -72,10 +72,16 @@ public class ViewAll extends AppCompatActivity {
                 Cursor res = clinicDatabase.getDataByID(id,lname);
                 StringBuffer buffer = new StringBuffer();
                 while (res.moveToNext()) {
-                    buffer.append("Id: " + res.getString(0) + "\n");
-                    buffer.append("Firstname: " + res.getString(1) + "\n");
-                    buffer.append("Lastname: " + res.getString(2) + "\n");
-                    buffer.append("Points: " + res.getString(3) + "\n\n");
+                    buffer.append("Id: " + res.getString(0) + "\n\n");
+                    buffer.append("Firstname: " + res.getString(1) + "\n\n");
+                    buffer.append("Lastname: " + res.getString(2) + "\n\n");
+                    buffer.append("Age: " + res.getString(3) + "\n\n");
+                    buffer.append("Gender: " + res.getString(4) + "\n\n");
+                    buffer.append("Birthday: " + res.getString(5) + "\n\n");
+                    buffer.append("Condition: " + res.getString(6) + "\n\n");
+                    buffer.append("Diagnosis: " + res.getString(7) + "\n\n");
+                    buffer.append("Appoint Date: " + res.getString(8) + "\n\n");
+                    buffer.append("Appoint Time: " + res.getString(9) + "\n\n");
                 }
                 if(res.getCount() == 0) {
                     Toast.makeText(ViewAll.this, "Table is empty", Toast.LENGTH_LONG).show();
