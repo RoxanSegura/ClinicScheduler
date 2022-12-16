@@ -4,14 +4,17 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.util.Calendar;
@@ -23,6 +26,8 @@ public class AppointPage extends AppCompatActivity {
     TextView fname, lname, age, condition, diagnosis;
     Button bDayPicker, appointDatePicker, appointTimePicker, submitRecord, viewRecords;
     RadioGroup radioGrp;
+
+    private int mHour, mMinute;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +47,7 @@ public class AppointPage extends AppCompatActivity {
         radioGrp = findViewById(R.id.radiogrp);
 
         initDatePicker(); //For the Appointment Date Button
+        setTime();
         submitData();
         showAll();
     }
@@ -181,7 +187,33 @@ private String getMonthFormat(int month) {
         return "Jan";
     }
 
-public void openDatePicker(View view) {
+    public void openDatePicker(View view) {
         datePickerDialog.show();
     }
+
+    public void setTime(){
+        final Calendar c = Calendar.getInstance();
+        mHour = c.get(Calendar.HOUR_OF_DAY);
+        mMinute = c.get(Calendar.MINUTE);
+
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker view, int hour, int minute) {
+                appointTimePicker.setText(hour + ":" + minute);
+            }
+        }, mHour, mMinute, false);
+
+        appointTimePicker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                timePickerDialog.show();
+            }
+        });
+
+        Log.i("info","yes " + appointTimePicker);
+    }
+
 }
+
+/*Appointment Time*/
+
