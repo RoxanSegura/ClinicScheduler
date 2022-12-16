@@ -79,7 +79,7 @@
         android:ems="10"
         android:hint="Age"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/editTextDate"
+        app:layout_constraintBottom_toTopOf="@+id/bDay"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lname" />
 
@@ -182,7 +182,7 @@
         app:layout_constraintTop_toBottomOf="@+id/appointTimePicker" />
 
     <EditText
-        android:id="@+id/editTextDate"
+        android:id="@+id/bDay"
         android:layout_width="177dp"
         android:layout_height="59dp"
         android:layout_marginStart="35dp"

@@ -23,8 +23,8 @@ public class AppointPage extends AppCompatActivity {
 
     ClinicDatabase clinicDatabase;
     DatePickerDialog datePickerDialog;
-    TextView fname, lname, age, condition, diagnosis;
-    Button bDayPicker, appointDatePicker, appointTimePicker, submitRecord, viewRecords;
+    TextView fname, lname, age, condition, diagnosis, bDay;
+    Button appointDatePicker, appointTimePicker, submitRecord, viewRecords;
     RadioGroup radioGrp;
 
     private int mHour, mMinute;
@@ -40,6 +40,7 @@ public class AppointPage extends AppCompatActivity {
         age = findViewById(R.id.age);
         condition = findViewById(R.id.condition);
         diagnosis = findViewById(R.id.diagnosis);
+        bDay = findViewById(R.id.bDay);
         appointDatePicker = findViewById(R.id.appointDatePicker);
         appointTimePicker = findViewById(R.id.appointTimePicker);
         submitRecord = findViewById(R.id.recordSubmit);
@@ -48,8 +49,8 @@ public class AppointPage extends AppCompatActivity {
 
         initDatePicker(); //For the Appointment Date Button
         setTime();
-        submitData();
         showAll();
+        submitData();
     }
 
     //Honestly dont know if this show is a good one
@@ -97,7 +98,7 @@ public boolean checkInputs(){
         RadioButton radio = (RadioButton) findViewById(select);
 
         if(fname.getText().toString().matches("") || lname.getText().toString().matches("") || age.getText().toString().matches("") ||
-        radio.getText().toString().matches("") || bDayPicker.getText().toString().matches("") || condition.getText().toString().matches("") ||
+        radio.getText().toString().matches("") || bDay.getText().toString().matches("") || condition.getText().toString().matches("") ||
             diagnosis.getText().toString().matches("") || appointDatePicker.getText().toString().matches("APPOINTMENT DATE") ||
                 appointTimePicker.getText().toString().matches("APPOINTMENT TIME")) {
         isEmpty = true;
@@ -112,24 +113,24 @@ public void submitData() {
             @Override
             public void onClick(View view) {
 
-                if(!checkInputs()){
+  //              if(!checkInputs()){
 
                     int select = radioGrp.getCheckedRadioButtonId();
                     RadioButton radio = (RadioButton) findViewById(select);
 
-                    boolean res = clinicDatabase.insertData(fname.getText().toString(),lname.getText().toString(),age.getText().toString(),radio.getText().toString(),
-                            bDayPicker.getText().toString(), condition.getText().toString(), diagnosis.getText().toString(), appointDatePicker.getText().toString(), appointTimePicker.getText().toString());
+                    boolean res = clinicDatabase.insertData(fname.getText().toString(),lname.getText().toString(),age.getText().toString().toString(),radio.getText().toString(),
+                            bDay.getText().toString(),condition.getText().toString(),diagnosis.getText().toString(), appointDatePicker.getText().toString(),appointTimePicker.getText().toString());
 
                     if(res == false)
                         Toast.makeText(AppointPage.this, "Data Insertion Failed", Toast.LENGTH_LONG).show();
                     else
                         Toast.makeText(AppointPage.this, "Data Insertion Successful", Toast.LENGTH_LONG).show();
-
+/*
                 } else {
 
                     Toast.makeText(AppointPage.this, "Please Fill in the boxes", Toast.LENGTH_LONG).show();
                 }
-
+*/
         }
     });
  }
